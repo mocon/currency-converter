@@ -14,7 +14,7 @@ export default EStyleSheet.create({
         backgroundColor: '$white'
     },
     text: {
-        fontSize: 16,
+        fontSize: 18,
         color: '$darkText'
     },
     separator: {
