@@ -22,15 +22,15 @@ class Home extends Component {
     };
 
     handlePressBaseCurrency = () => {
-        console.log('Pressed base');
+        // console.log('Pressed base');
     }
 
     handlePressQuoteCurrency = () => {
-        console.log('Pressed quote');
+        // console.log('Pressed quote');
     }
 
     handleTextChange = (text) => {
-        console.log('Changed text to', text);
+        // console.log('Changed text to', text);
     }
 
     handleSwapCurrency = () => {
@@ -41,7 +41,7 @@ class Home extends Component {
     }
 
     handleOptionsPress = () => {
-        console.log('Pressed options');
+        // console.log('Pressed options');
     }
 
     render() {
