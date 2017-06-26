@@ -9,7 +9,7 @@ const TEMP_CURRENT_CURRENCY = 'CAD';
 
 class CurrencyList extends Component {
     handlePress = () => {
-
+        this.props.navigation.goBack(null);
     }
 
     render() {
@@ -34,6 +34,7 @@ class CurrencyList extends Component {
 }
 
 CurrencyList.propTypes = {
+    navigation: PropTypes.object,
     data: PropTypes.array
 };
 
