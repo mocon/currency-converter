@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ListItem, Separator } from '../components/List';
+import { connectAlert } from '../components/Alert';
 
 const ICON_PREFIX = (Platform.OS === 'ios') ? 'ios' : 'md';
 const ICON_COLOR = '#868686';
@@ -11,7 +12,8 @@ const ICON_SIZE = 23;
 
 class Options extends Component {
     static propTypes = {
-        navigation: PropTypes.object
+        navigation: PropTypes.object,
+        alertWithType: PropTypes.func
     };
 
     handleThemesPress = () => {
@@ -21,7 +23,7 @@ class Options extends Component {
     handleSitePress = () => {
         Linking.openURL('http://fixer.io')
             .catch(() => {
-                alert('An error occured!')
+                this.props.alertWithType('error', 'Sorry!', "Fixer.io can't be opened right now!")
             });
     }
 
@@ -58,4 +60,4 @@ class Options extends Component {
     }
 }
 
-export default Options;
+export default connectAlert(Options);
