@@ -46,13 +46,17 @@ class Home extends Component {
     }
 
     handleOptionsPress = () => {
-        // console.log('Pressed options');
+        this.props.navigation.navigate('Options');
     }
 
     render() {
         return (
             <Container>
-                <StatusBar translucent={ false } barStyle="light-content" />
+                <StatusBar
+                    translucent={ false }
+                    barStyle="light-content"
+                    animated
+                />
                 <Header
                     onPress={ this.handleOptionsPress }
                 />
