@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 
 const ClearButton = ({ text, onPress }) => (
-    <TouchableOpacity style={ styles.container }>
+    <TouchableOpacity onPress={ onPress } style={ styles.container }>
         <View style={ styles.wrapper }>
             <Image
                 resizeMode="contain"
