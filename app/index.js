@@ -1,6 +1,9 @@
+/* eslint react/no-multi-comp: 0 */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Provider, connect } from 'react-redux';
+import { addNavigationHelpers } from 'react-navigation';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import { Provider } from 'react-redux';
 
 import Navigator from './config/routes';
 import { AlertProvider } from './components/Alert';
@@ -19,10 +22,32 @@ EStyleSheet.build({
     // outline: 1 // Outline all components
 });
 
+const App = ({ dispatch, nav }) => (
+    <Navigator
+        navigation={ addNavigationHelpers({
+            dispatch,
+            state: nav
+        }) }
+    />
+);
+
+App.propTypes = {
+    dispatch: PropTypes.func,
+    nav: PropTypes.object
+};
+
+const mapStateToProps = (state) => ({
+    nav: state.nav
+});
+
+const AppWithNavigation = connect(mapStateToProps)(App);
+
 const Index = () => (
     <Provider store={ store }>
         <AlertProvider>
-            <Navigator onNavigationStateChange={ null } />
+            <AppWithNavigation
+                onNavigationStateChange={ null }
+            />
         </AlertProvider>
     </Provider>
 );
