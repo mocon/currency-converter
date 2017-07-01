@@ -25,24 +25,18 @@ class Home extends Component {
     };
 
     handlePressBaseCurrency = () => {
-        this.props.navigation.navigate('CurrencyList', { title: 'Base Currency' });
+        this.props.navigation.navigate('CurrencyList', { title: 'Base Currency', type: 'base' });
     }
 
     handlePressQuoteCurrency = () => {
-        this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency' });
+        this.props.navigation.navigate('CurrencyList', { title: 'Quote Currency', type: 'quote' });
     }
 
-    handleTextChange = (amount) => {
-        this.props.dispatch(changeCurrencyAmount(amount));
-    }
+    handleTextChange = (amount) => this.props.dispatch(changeCurrencyAmount(amount));
 
-    handleSwapCurrency = () => {
-        this.props.dispatch(swapCurrency());
-    }
+    handleSwapCurrency = () => this.props.dispatch(swapCurrency());
 
-    handleOptionsPress = () => {
-        this.props.navigation.navigate('Options');
-    }
+    handleOptionsPress = () => this.props.navigation.navigate('Options');
 
     render() {
         let quotePrice = (this.props.amount * this.props.conversionRate).toFixed(2);
